@@ -57,7 +57,7 @@ convert data/textures/effect-2d.png -strip data/textures/effect-2d.png
 %{_bindir}/%{name}-es2
 %{_bindir}/%{name}-es2-drm
 %{_bindir}/%{name}-software
-%{_bindir}/%{name}-wayland
+#{_bindir}/%{name}-wayland
 %{_mandir}/man1/%{name}-wayland.1*
 %{_bindir}/%{name}-es2-wayland
 %{_mandir}/man1/%{name}.1*
