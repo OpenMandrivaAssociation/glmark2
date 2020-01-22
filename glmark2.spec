@@ -1,20 +1,17 @@
-%define ver	2017.07
-%define gitdate	20190327
-%define githash	eaa7088
-%define rel	4
+%define gitdate	25.12.2019
+#rel to bump
+%define rel	1
 
 Name:		glmark2
-Version:	%{ver}
-Release:	%mkrel %rel%{?gitdate:.%{gitdate}}
+Version:	%{gitdate}
+Release:	1.%{gitdate}.%{rel}
 Summary:	OpenGL and ES 2.0 Benchmark
 License:	GPLv3
 URL:		https://github.com/glmark2/glmark2
 Group:		Development/X11
 # From https://github.com/glmark2/glmark2.git
-# Use the included glmark2-getfromgit.sh script to generate the latest archive
-Source0:	glmark2-%{ver}-%{gitdate}.git.%{githash}.tar.xz
-Source1:	glmark2-getfromgit.sh
-Source2:	glmark2-software
+Source0:	glmark2-25.12.2019.zip
+
 BuildRequires:	imagemagick
 BuildRequires:	pkgconfig(egl)
 BuildRequires:	pkgconfig(gbm)
@@ -33,7 +30,7 @@ BuildRequires:	python
 Glmark2 is a benchmark for OpenGL 2.0 and ES 2.0.
 
 %prep
-%setup -q
+%setup -qn glmark2-master
 
 # Remove internal jpeg libraries
 rm -rv src/libjpeg-turbo src/libpng
@@ -50,7 +47,7 @@ convert data/textures/effect-2d.png -strip data/textures/effect-2d.png
 
 %install
 ./waf install -v --destdir=%{buildroot}
-install -m 755 %{SOURCE2} %{buildroot}%{_bindir}
+#install -m 755 %{SOURCE2} %{buildroot}%{_bindir}
 
 %files
 # the x11 opengl benchmark
