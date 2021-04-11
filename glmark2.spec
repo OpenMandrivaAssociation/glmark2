@@ -1,17 +1,12 @@
-%define gitdate	25.12.2019
-#rel to bump
-%define rel	1
 
 Name:		glmark2
-Version:	%{gitdate}
-Release:	1.%{gitdate}.%{rel}
+Version:	2021.02
+Release:	1
 Summary:	OpenGL and ES 2.0 Benchmark
 License:	GPLv3
 URL:		https://github.com/glmark2/glmark2
 Group:		Development/X11
-# From https://github.com/glmark2/glmark2.git
-Source0:	glmark2-25.12.2019.zip
-
+Source0:	https://github.com/glmark2/glmark2/releases/archive/%{name}-%{version}.tar.gz
 BuildRequires:	imagemagick
 BuildRequires:	pkgconfig(egl)
 BuildRequires:	pkgconfig(gbm)
@@ -24,13 +19,14 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(wayland-client)
 BuildRequires:	pkgconfig(wayland-egl)
-BuildRequires:	python
+BuildRequires:	pkgconfig(wayland-protocols)
+BuildRequires:	meson
 
 %description
 Glmark2 is a benchmark for OpenGL 2.0 and ES 2.0.
 
 %prep
-%setup -qn glmark2-master
+%autosetup -p1
 
 # Remove internal jpeg libraries
 rm -rv src/libjpeg-turbo src/libpng
@@ -38,16 +34,13 @@ rm -rv src/libjpeg-turbo src/libpng
 %build
 # Fix incorrect sRGB profile (from suse)
 convert data/textures/effect-2d.png -strip data/textures/effect-2d.png
+%meson \
+    -Dflavors="drm-gl,drm-glesv2,x11-gl,x11-glesv2,wayland-gl,wayland-glesv2"
 
-./waf configure	\
-	--with-flavors="drm-gl,drm-glesv2,x11-gl,x11-glesv2,wayland-gl,wayland-glesv2" \
-	--prefix=%{_usr}
-./waf -v
-
+%meson_build
 
 %install
-./waf install -v --destdir=%{buildroot}
-#install -m 755 %{SOURCE2} %{buildroot}%{_bindir}
+%meson_install -C build
 
 %files
 # the x11 opengl benchmark
