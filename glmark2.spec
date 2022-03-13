@@ -1,6 +1,5 @@
-
 Name:		glmark2
-Version:	2021.02
+Version:	2021.12
 Release:	1
 Summary:	OpenGL and ES 2.0 Benchmark
 License:	GPLv3
@@ -49,13 +48,12 @@ convert data/textures/effect-2d.png -strip data/textures/effect-2d.png
 %{_bindir}/%{name}-drm
 %{_bindir}/%{name}-es2
 %{_bindir}/%{name}-es2-drm
-#{_bindir}/%{name}-software
 %{_bindir}/%{name}-wayland
-%{_mandir}/man1/%{name}-wayland.1*
 %{_bindir}/%{name}-es2-wayland
-%{_mandir}/man1/%{name}.1*
-%{_mandir}/man1/%{name}-drm.1*
-%{_mandir}/man1/%{name}-es2.1*
-%{_mandir}/man1/%{name}-es2-drm.1*
-%{_mandir}/man1/%{name}-es2-wayland.1*
+%doc %{_mandir}/man1/%{name}-wayland.1*
+%doc %{_mandir}/man1/%{name}.1*
+%doc %{_mandir}/man1/%{name}-drm.1*
+%doc %{_mandir}/man1/%{name}-es2.1*
+%doc %{_mandir}/man1/%{name}-es2-drm.1*
+%doc %{_mandir}/man1/%{name}-es2-wayland.1*
 %{_datadir}/%{name}/
