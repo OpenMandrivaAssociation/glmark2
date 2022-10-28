@@ -1,2 +1,6 @@
 sources:
   glmark2-2021.12.tar.gz: 2cb8dbae40108024a49b228e0d6f665e1916ea2d
+  glmark2-es2-wayland.png: c8d3ff9b32e0dab900f6d52dc37727523cffab26
+  glmark2-es2.png: 393156ec5707b1421551c850ba7cacb34855eebd
+  glmark2-wayland.png: 80dfc2cb4b94d40cebda84a07905353e0a12285a
+  glmark2.png: a1e66a07220fc7cdfc5816e83e5384e8f29aaa53
