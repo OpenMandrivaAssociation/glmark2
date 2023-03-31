@@ -1,7 +1,7 @@
 Summary:	OpenGL and ES 2.0 Benchmark
 Name:		glmark2
 Version:	2021.12
-Release:	2
+Release:	3
 License:	GPLv3
 Group:		Development/X11
 URL:		https://github.com/glmark2/glmark2
