@@ -1,11 +1,11 @@
 Summary:	OpenGL and ES 2.0 Benchmark
 Name:		glmark2
-Version:	2021.12
-Release:	3
+Version:	2023.01
+Release:	1
 License:	GPLv3
 Group:		Development/X11
 URL:		https://github.com/glmark2/glmark2
-Source0:	https://github.com/glmark2/glmark2/releases/archive/%{name}-%{version}.tar.gz
+Source0:	https://github.com/glmark2/glmark2/archive/refs/tags/%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-es2.desktop
 Source3:	%{name}-es2-wayland.desktop
@@ -14,7 +14,6 @@ Source5:	%{name}.png
 Source6:	%{name}-es2.png
 Source7:	%{name}-es2-wayland.png
 Source8:	%{name}-wayland.png
-Patch0:		https://github.com/glmark2/glmark2/commit/d1ca3f53c96dc8a4048b17dc16147a8fac782d4a.patch
 BuildRequires:	imagemagick
 BuildRequires:	pkgconfig(egl)
 BuildRequires:	pkgconfig(gbm)
